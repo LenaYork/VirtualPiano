@@ -178,3 +178,47 @@
 .active-button:hover {
     background-color: #16d4d4;
 }
+
+.key:after {
+    /* pointer-events: none; */
+    content: attr(data-letter);
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    color: #06c0c0;
+    bottom: -270px;
+    left: 30px;
+    /* transition: 0.3s; */
+}
+
+.key:hover:after {
+    color: #39e6e6;
+}
+
+.key:active:after {
+    left: 20px;
+    bottom: -260px; 
+}
+
+.sharp-key:before {
+    content: attr(data-letter);
+    color: #4f4f44;
+    position: relative;
+    top: -40px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+}
+
+.sharp-key:hover:before {
+    color: #3d3d39;
+}
+
+.sharp-key:active:before {
+    left: 10px;
+}
