@@ -100,6 +100,7 @@
     background-color: beige;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    z-index: 1;
 }
 
 .key:hover {
@@ -125,6 +126,7 @@
     background-color: #4f4f44;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    z-index: 3;
 }
 
 .sharp-key:hover {
@@ -144,4 +146,35 @@
 .sharp-key:nth-child(3) {
     background-color: transparent;
     pointer-events: none;
+}
+
+.buttons {
+    display: flex;
+    width: 310px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    justify-content: space-between;
+}
+
+.button {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: grey;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #aba1a1;
+}
+
+.active-button {
+    background-color: #06c0c0;
+}
+
+.active-button:hover {
+    background-color: #16d4d4;
 }

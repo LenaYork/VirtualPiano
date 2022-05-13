@@ -1,6 +1,17 @@
 const keyboard = document.querySelector(".keyboard");
 const main = document.querySelector(".main-container");
 let isClicked = false;
+let activeButton = "notes";
+const buttons = document.querySelectorAll(".button");
+
+buttons.forEach(button => button.addEventListener("click", function(event) {
+    if (!event.target.classList.contains("active-button")) {
+        buttons.forEach(button => button.classList.remove("active-button"));
+        event.target.classList.add("active-button");
+
+    } 
+    
+}))
 
 main.addEventListener("mousedown", function(event) {
     isClicked = true;
@@ -9,9 +20,6 @@ main.addEventListener("mousedown", function(event) {
             
             console.log(event.target.getAttribute("data-code"));
             let note = event.target.getAttribute("data-code");
-            // let sound = new Audio();
-            // sound.src = `./media/${note}.mp3`;
-            // sound.play();
             playNote(note);
     }
 })
@@ -30,15 +38,17 @@ main.addEventListener("mouseover", function(event) {
         }
 })
 
-keyboard.addEventListener("mouseout", function(event) {
-    if (event.target.classList.contains("key") 
-        || event.target.classList.contains("sharp-key")) {
-            console.log("улетели");
-        }
-})
+// keyboard.addEventListener("mouseout", function(event) {
+//     if (event.target.classList.contains("key") 
+//         || event.target.classList.contains("sharp-key")) {
+//             console.log("улетели");
+//         }
+// })
 
 function playNote(note) {
     let sound = new Audio();
     sound.src = `./media/${note}.mp3`;
     sound.play();
 }
+
+
