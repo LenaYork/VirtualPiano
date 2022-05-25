@@ -194,6 +194,10 @@
     /* transition: 0.3s; */
 }
 
+.key.note:after {
+    content: attr(data-note);
+}
+
 .key:hover:after {
     color: #39e6e6;
 }
@@ -213,6 +217,10 @@
     height: 40px;
     font-size: 26px;
     line-height: 40px;
+}
+
+.sharp-key.note:before{
+    content: attr(data-note);
 }
 
 .sharp-key:hover:before {
