@@ -12,13 +12,11 @@ buttons.forEach(button => button.addEventListener("click", function(event) {
     const keys = document.querySelectorAll(".key");
     const sharpKeys = document.querySelectorAll(".sharp-key"); 
     if (event.target.id === "notes-button" && !event.target.classList.contains("active-button")) {
-        console.log("зашел в первое условие");
         keys.forEach( key => key.classList.add("note"));
         sharpKeys.forEach( key => key.classList.add("note"));
     } else
 
     if (event.target.id === "letter-button" && !event.target.classList.contains("active-button")) {
-        console.log("зашел во второе условие");
         keys.forEach( key => key.classList.remove("note"));
         sharpKeys.forEach( key => key.classList.remove("note"));
     }

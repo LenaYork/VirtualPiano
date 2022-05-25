@@ -32,6 +32,24 @@
     .sharp-key:active {
         height: 165px;
     }
+
+    .key:after {
+        bottom: -270px;
+        left: 30px;
+    }
+
+    .key:active:after {
+        left: 20px;
+        bottom: -260px; 
+    }
+
+    .sharp-key:active:before {
+        left: 10px;
+    }
+
+    .sharp-key:before {
+        left: 20px;
+    }
 }
 
 @media all and (max-width: 629px) {
@@ -61,6 +79,24 @@
 
     .sharp-key:active {
         height: 95px;
+    }
+
+    .key:after {
+        left: 20px;
+        top: 160px;
+    }
+
+    .key:active:after {
+        left: 5px;
+        top: 150px; 
+    }
+
+    .sharp-key:active:before {
+        left: 0;
+    }
+
+    .sharp-key:before {
+        left: 10px;
     }
 }
 
@@ -189,8 +225,8 @@
     line-height: 40px;
     text-align: center;
     color: #06c0c0;
-    bottom: -270px;
-    left: 30px;
+    /* bottom: -270px;
+    left: 30px; */
     /* transition: 0.3s; */
 }
 
@@ -202,17 +238,12 @@
     color: #39e6e6;
 }
 
-.key:active:after {
-    left: 20px;
-    bottom: -260px; 
-}
-
 .sharp-key:before {
     content: attr(data-letter);
     color: #4f4f44;
     position: relative;
     top: -40px;
-    left: 20px;
+    /* left: 20px; */
     width: 40px;
     height: 40px;
     font-size: 26px;
@@ -225,8 +256,4 @@
 
 .sharp-key:hover:before {
     color: #3d3d39;
-}
-
-.sharp-key:active:before {
-    left: 10px;
 }
