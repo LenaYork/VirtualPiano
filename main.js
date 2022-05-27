@@ -4,6 +4,10 @@ let isClicked = false;
 let activeButton = "notes";
 const buttons = document.querySelectorAll(".button");
 
+document.addEventListener("dragstart", function(event) {
+    console.log("start");
+    event.preventDefault();
+})
 
 //buttons keys-notes 
 buttons.forEach(button => button.addEventListener("click", function(event) {
@@ -30,6 +34,7 @@ buttons.forEach(button => button.addEventListener("click", function(event) {
 }))
 
 main.addEventListener("mousedown", function(event) {
+    console.log("NEW !");
     isClicked = true;
     if (event.target.classList.contains("key") 
         || event.target.classList.contains("sharp-key")) {
@@ -51,6 +56,7 @@ main.addEventListener("mousedown", function(event) {
 
 main.addEventListener("mouseup", function(event) {
     isClicked = false;
+    console.log(isClicked);
 
         if (event.target.classList.contains("sharp-key")) {
             event.target.classList.remove("sharp-key-active");
@@ -90,3 +96,61 @@ function playNote(note) {
     sound.src = `./media/${note}.mp3`;
     sound.play();
 }
+
+//работа клавиш физической клавиатуры
+
+const noteNames = [
+    "keyD",
+    "keyF",
+    "keyG",
+    "keyH",
+    "keyJ",
+    "keyK",
+    "keyL",
+    "keyR",
+    "keyT",
+    "keyU",
+    "keyI",
+    "keyO",
+]
+
+document.addEventListener("keydown", function(event) {
+    if (event.repeat) return;
+    noteNames.forEach(noteName => {
+        if (noteName.toLowerCase() === event.code.toLowerCase()) {
+            
+            let currentKey = document.querySelector(`div[data-code=${event.code}]`);
+            if (currentKey) {
+                if (!currentKey.classList.contains("key-active") 
+                || !currentKey.classList.contains("sharp-key-active")) {
+
+                    let note = event.code;
+                    playNote(note);
+
+                    if (currentKey.classList.contains("sharp-key")) {
+                        currentKey.classList.add("sharp-key-active");
+                    } else  if (currentKey.classList.contains("key")) {
+                        currentKey.classList.add("key-active");
+                    }
+                }
+            }
+        }
+    })
+})
+
+document.addEventListener("keyup", function(event) {
+    console.log("its keyup!");
+    let currentKey = document.querySelector(`div[data-code=${event.code}]`);
+        if (currentKey) {
+            if (currentKey.classList.contains("key-active") 
+            || currentKey.classList.contains("sharp-key-active")) {
+
+                if (currentKey.classList.contains("sharp-key-active")) {
+                    currentKey.classList.remove("sharp-key-active");
+                } else  if (currentKey.classList.contains("key-active")) {
+                    currentKey.classList.remove("key-active");
+                }
+            }
+        }
+            
+})
