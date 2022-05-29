@@ -1,5 +1,93 @@
-const keyboard = document.querySelector(".keyboard");
-const main = document.querySelector(".main-container");
+const main = document.createElement("div");
+main.classList.add("main-container");
+document.body.appendChild(main);
+
+const header = document.createElement("header");
+header.classList.add("header");
+
+const title = document.createElement("p");
+title.classList.add("page-title");
+title.innerHTML = "Virtual Piano";
+main.appendChild(header);
+header.appendChild(title);
+
+const central = document.createElement("main");
+central.classList.add("main");
+main.appendChild(central);
+const buttonsContainer = document.createElement("div");
+buttonsContainer.classList.add("buttons");
+central.appendChild(buttonsContainer);
+const buttonNote = document.createElement("div");
+buttonNote.classList.add("button", "notes-button");
+buttonNote.setAttribute("id", "notes-button");
+buttonNote.innerHTML = "Notes";
+
+const buttonLetters = document.createElement("div");
+buttonLetters.classList.add("button", "letter-button", "active-button");
+buttonLetters.setAttribute("id", "letter-button");
+buttonLetters.innerHTML = "Letter";
+
+buttonsContainer.appendChild(buttonNote);
+buttonsContainer.appendChild(buttonLetters);
+
+const keyboard = document.createElement("div");
+keyboard.classList.add("keyboard");
+central.appendChild(keyboard);
+
+const keysDiv = document.createElement("div");
+keysDiv.classList.add("keys");
+
+const whiteKeysAttributes = [
+    ["KeyD", "D", "c"],
+    ["KeyF", "F", "d"],
+    ["KeyG", "G", "e"],
+    ["KeyH", "H", "f"],
+    ["KeyJ", "J", "j"],
+    ["KeyK", "K", "a"],
+    ["KeyL", "L", "b"],   
+]
+
+function addWhiteKeys(array) {
+    array.forEach(elem => {
+        const key = document.createElement("div");
+        key.classList.add("key");
+        key.setAttribute("data-code", elem[0]);
+        key.setAttribute("data-letter", elem[1]);
+        key.setAttribute("data-note", elem[2]); 
+        keysDiv.appendChild(key);
+    })
+}
+
+addWhiteKeys(whiteKeysAttributes);
+
+const sharpKeysDiv = document.createElement("div");
+sharpKeysDiv.classList.add("sharp-keys");
+
+const sharpKeysAttributes = [
+    ["KeyR", "R", "c#"],
+    ["KeyT", "T", "d#"],
+    ["", "", ""],
+    ["KeyU", "U", "f#"],
+    ["KeyI", "I", "g#"],
+    ["KeyO", "O", "a#"],
+]
+
+function addSharpKeys(array) {
+    array.forEach(elem => {
+        const sharpKey = document.createElement("div");
+        sharpKey.classList.add("sharp-key");
+        sharpKey.setAttribute("data-code", elem[0]);
+        sharpKey.setAttribute("data-letter", elem[1]);
+        sharpKey.setAttribute("data-note", elem[2]); 
+        sharpKeysDiv.appendChild(sharpKey);
+    }) 
+}
+
+addSharpKeys(sharpKeysAttributes);
+
+keyboard.appendChild(keysDiv);
+keyboard.appendChild(sharpKeysDiv);
+
 let isClicked = false;
 let activeButton = "notes";
 const buttons = document.querySelectorAll(".button");
@@ -85,8 +173,7 @@ function playNote(note) {
     sound.play();
 }
 
-//работа клавиш физической клавиатуры
-
+//рhysical keyboard
 const noteNames = [
     "KeyD",
     "KeyF",
@@ -102,12 +189,10 @@ const noteNames = [
     "KeyO",
 ]
 
-
 document.addEventListener("keydown", function(event) {
     if (event.repeat) return;
     noteNames.forEach(noteName => {
         if (noteName === event.code) {
-            
             let currentKey = document.querySelector(`div[data-code=${event.code}]`);
             if (currentKey) {
                 if (!currentKey.classList.contains("key-active") 
