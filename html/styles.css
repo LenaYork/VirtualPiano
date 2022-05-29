@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    /* transition: all 0.5s ease-out; */
+}
+
+@media all and (min-width: 630px) {
+
+    .keys {
+        width: 616px;
+    }
+
+    .key {
+        width: 80px;
+        height: 270px;
+        /* margin: 0 4px; */
+    }
+
+    .key-active {
+        height: 265px;
+    }
+
+    .sharp-keys {
+        width: 505px;
+    }
+
+    .sharp-key {
+        width: 54px;
+        height: 170px;
+        /* margin: 0 17px; */
+    }
+
+    .sharp-key-active {
+        height: 165px;
+    }
+
+    .key:after {
+        bottom: -270px;
+        left: 30px;
+    }
+
+    .key-active:after {
+        left: 20px;
+        bottom: -260px; 
+    }
+
+    .sharp-key:before {
+        left: 20px;
+    }
+
+    .sharp-key-active:before {
+        left: 10px;
+    }
+}
+
+@media all and (max-width: 629px) {
+    .keys {
+        width: 350px;
+    }
+
+    .key {
+        width: 44px;
+        height: 160px;
+        /* margin: 0 3px; */
+    }
+
+    .key-active {
+        height: 155px;
+    }
+
+    .sharp-keys {
+        width: 300px;
+    }
+
+    .sharp-key {
+        width: 36px;
+        height: 100px;
+        /* margin: 0 7px; */
+    }
+
+    .sharp-key-active {
+        height: 95px;
+    }
+
+    .key:after {
+        left: 20px;
+        top: 160px;
+    }
+
+    .key-active:after {
+        left: 5px;
+        top: 150px; 
+    }
+
+    .sharp-key:before {
+        left: 10px;
+    }
+
+    .sharp-key-active:before {
+        left: -2px;
+    }
+}
+
+.main-container {
+    margin: 0;
+    background-color: #057d7d;
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+}
+
+.header {
+    height: 100px;
+    padding-top: 30px;
+}
+
+.page-title {
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.keys {
+    display: flex;
+    justify-content: space-around;
+}
+
+.key {
+    background-color: beige;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 1;
+}
+
+.key:hover {
+    cursor: pointer;
+    background-color: #dededa;
+}
+
+/* .key:active {
+    box-sizing: border-box;
+    padding: 0 10px 15px;
+    background-color: #afafa7;
+    border: 4px solid #057d7d;
+} */
+
+.sharp-keys {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+}
+
+.sharp-key {
+    background-color: #4f4f44;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 3;
+}
+
+.sharp-key:hover {
+    cursor: pointer;
+    background-color: #43433d;
+}
+
+.sharp-key-active {
+    box-sizing: border-box;
+    padding: 0 10px 15px;
+    background-color: #616157;
+    border-left: 3px solid beige;
+    border-right: 3px solid beige;
+    border-top: 5px solid #057d7d;
+}
+
+.sharp-key:nth-child(3) {
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.buttons {
+    display: flex;
+    width: 310px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    justify-content: space-between;
+}
+
+.button {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: grey;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #aba1a1;
+}
+
+.active-button {
+    background-color: #06c0c0;
+}
+
+.active-button:hover {
+    background-color: #16d4d4;
+}
+
+.key:after {
+    /* pointer-events: none; */
+    content: attr(data-letter);
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    color: #06c0c0;
+    /* bottom: -270px;
+    left: 30px; */
+    /* transition: 0.3s; */
+}
+
+.key.note:after {
+    content: attr(data-note);
+}
+
+.key:hover:after {
+    color: #39e6e6;
+}
+
+.sharp-key:before {
+    content: attr(data-letter);
+    color: #4f4f44;
+    position: relative;
+    top: -40px;
+    /* left: 20px; */
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+}
+
+.sharp-key.note:before{
+    content: attr(data-note);
+}
+
+.sharp-key:hover:before {
+    color: #3d3d39;
+}
+/* 
+.key-active {
+    border: 5px solid red;
+    background-color: red;
+} */
+
+.key-active {
+    box-sizing: border-box;
+    padding: 0 10px 15px;
+    background-color: #afafa7;
+    border: 4px solid #057d7d;
+}
+
+/* .sharp-key-active {
+    border: 5px solid red;
+    background-color: #06c0c0;
+} */
