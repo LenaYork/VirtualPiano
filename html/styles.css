@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    /* transition: all 0.5s ease-out; */
 }
 
 @media all and (min-width: 630px) {
@@ -12,7 +11,6 @@
     .key {
         width: 80px;
         height: 270px;
-        /* margin: 0 4px; */
     }
 
     .key-active {
@@ -26,7 +24,6 @@
     .sharp-key {
         width: 54px;
         height: 170px;
-        /* margin: 0 17px; */
     }
 
     .sharp-key-active {
@@ -60,7 +57,6 @@
     .key {
         width: 44px;
         height: 160px;
-        /* margin: 0 3px; */
     }
 
     .key-active {
@@ -74,7 +70,6 @@
     .sharp-key {
         width: 36px;
         height: 100px;
-        /* margin: 0 7px; */
     }
 
     .sharp-key-active {
@@ -144,13 +139,6 @@
     background-color: #dededa;
 }
 
-/* .key:active {
-    box-sizing: border-box;
-    padding: 0 10px 15px;
-    background-color: #afafa7;
-    border: 4px solid #057d7d;
-} */
-
 .sharp-keys {
     display: flex;
     justify-content: space-between;
@@ -216,7 +204,6 @@
 }
 
 .key:after {
-    /* pointer-events: none; */
     content: attr(data-letter);
     position: relative;
     width: 40px;
@@ -225,9 +212,6 @@
     line-height: 40px;
     text-align: center;
     color: #06c0c0;
-    /* bottom: -270px;
-    left: 30px; */
-    /* transition: 0.3s; */
 }
 
 .key.note:after {
@@ -243,7 +227,6 @@
     color: #4f4f44;
     position: relative;
     top: -40px;
-    /* left: 20px; */
     width: 40px;
     height: 40px;
     font-size: 26px;
@@ -257,11 +240,6 @@
 .sharp-key:hover:before {
     color: #3d3d39;
 }
-/* 
-.key-active {
-    border: 5px solid red;
-    background-color: red;
-} */
 
 .key-active {
     box-sizing: border-box;
@@ -269,8 +247,3 @@
     background-color: #afafa7;
     border: 4px solid #057d7d;
 }
-
-/* .sharp-key-active {
-    border: 5px solid red;
-    background-color: #06c0c0;
-} */

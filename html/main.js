@@ -42,7 +42,6 @@ main.addEventListener("mousedown", function(event) {
                 event.target.classList.add("key-active");
             }
     }
-
 })
 
 main.addEventListener("mouseup", function(event) {
@@ -86,7 +85,6 @@ function playNote(note) {
 }
 
 //работа клавиш физической клавиатуры
-
 const noteNames = [
     "KeyD",
     "KeyF",
@@ -101,7 +99,6 @@ const noteNames = [
     "KeyI",
     "KeyO",
 ]
-
 
 document.addEventListener("keydown", function(event) {
     if (event.repeat) return;
