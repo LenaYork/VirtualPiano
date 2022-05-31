@@ -1,0 +1,23 @@
+
+.button {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: grey;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: #aba1a1;
+}
+
+.active-button {
+    background-color: #06c0c0;
+}
+
+.active-button:hover {
+    background-color: #16d4d4;
+}
