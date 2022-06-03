@@ -10,6 +10,25 @@
     background-color: #dededa;
 }
 
+.key:after {
+    content: attr(data-letter);
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    color: #06c0c0;
+}
+
+.key.note:after {
+    content: attr(data-note);
+}
+
+.key:hover:after {
+    color: #39e6e6;
+}
+
 @media all and (min-width: 630px) {
 
     .key {
@@ -28,7 +47,7 @@
     }
 
     .key-active:after {
-        left: 20px;
+        left: 30px;
         bottom: -260px; 
     }
 }
@@ -51,27 +70,8 @@
     }
 
     .key-active:after {
-        left: 5px;
+        left: 20px;
         top: 150px; 
     }
 
-}
-
-.key:after {
-    content: attr(data-letter);
-    position: relative;
-    width: 40px;
-    height: 40px;
-    font-size: 26px;
-    line-height: 40px;
-    text-align: center;
-    color: #06c0c0;
-}
-
-.key.note:after {
-    content: attr(data-note);
-}
-
-.key:hover:after {
-    color: #39e6e6;
 }

@@ -15,14 +15,6 @@ function App() {
         }
     }
 
-    const keyHandler = () => {
-        console.log("тыкнули на белую!");
-    }
-
-    const sharpKeyHandler = () => {
-        console.log("тыкнули на черную! они тоже важны");
-    }
-
     const whiteKeysAttributes = [
         {
             code : "KeyD" ,
@@ -125,7 +117,6 @@ function App() {
                             note={data.note}
                             id={index}
                             key={index}
-                            onClick={keyHandler}
                         />
                     })}
                 </div>
@@ -137,7 +128,6 @@ function App() {
                             note={data.note}
                             id={index}
                             key={index}
-                            onClick={sharpKeyHandler}
                         />
                     } )}
                 </div>
