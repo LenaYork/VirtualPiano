@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import "./SharpKey.css";
 
-export const SharpKey = (props) => {
-
-    const code = props.code;
-
+export const SharpKey = ({code, className, letter, note, id}) => {
     const [isActiveKey, setIsKeyActive] = useState(false);
 
     const sharpKeyDownHandler = () => {
@@ -21,15 +18,15 @@ export const SharpKey = (props) => {
         sound.play();
     }
 
-    const sharpKeyClass = isActiveKey ? "sharp-key sharp-key-active" : "sharp-key";
+    const sharpKeyClass = isActiveKey ? `${className} sharp-key-active` : className;
 
     return(
         <div
             className={sharpKeyClass}
-            data-code={props.code}
-            data-letter={props.letter} 
-            data-note={props.note}
-            id={props.id}
+            data-code={code}
+            data-letter={letter} 
+            data-note={note}
+            id={id}
             onMouseDown={sharpKeyDownHandler}
             onMouseUp={sharpKeyUpHandler}
         >

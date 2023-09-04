@@ -6,13 +6,14 @@ import { SharpKey } from "./components/SharpKey/SharpKey";
 
 function App() {
 
-    const [activeButton, setActiveButton] = useState("notes-button");
+    const [activeButton, setActiveButton] = useState("letter-button");
 
     const activeButtonHandler = (event) => {
         const newId = event.target.id;
         if (newId !== activeButton) {
             setActiveButton(newId)
         }
+        console.log("clicked!")
     }
 
     const whiteKeysAttributes = [
@@ -117,6 +118,7 @@ function App() {
                             note={data.note}
                             id={index}
                             key={index}
+                            className={`key ${activeButton === "notes-button" ? "note" : ""}`}
                         />
                     })}
                 </div>
@@ -128,6 +130,7 @@ function App() {
                             note={data.note}
                             id={index}
                             key={index}
+                            className={`sharp-key ${activeButton === "notes-button" ? "note" : ""}`}
                         />
                     } )}
                 </div>

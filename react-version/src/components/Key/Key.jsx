@@ -1,10 +1,7 @@
 import React, {useState } from 'react';
 import "./Key.css";
 
-export const Key = (props) => {
-
-    const code = props.code;
-
+export const Key = ({code, className, letter, note, id}) => {
     const [isKeyActive, setIsKeyActive] = useState(false);
 
     const keyDownHandler = (event) => {
@@ -21,7 +18,7 @@ export const Key = (props) => {
         sound.play();
     }
 
-    const keyClass = isKeyActive ? "key key-active" : "key";
+    const keyClass = isKeyActive ? `${className} key-active` : className;
 
     return(
 
@@ -29,9 +26,9 @@ export const Key = (props) => {
             className={keyClass}
             // data-code={props.code}
             data-code={code}
-            data-letter={props.letter} 
-            data-note={props.note}
-            id={props.id}
+            data-letter={letter} 
+            data-note={note}
+            id={id}
             onMouseDown={keyDownHandler}
             onMouseUp={keyUpHandler}
         >
