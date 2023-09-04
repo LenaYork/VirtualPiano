@@ -1,0 +1,69 @@
+.app-container {
+    margin: 0;
+    background-color: #057d7d;
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+}
+
+.header {
+    height: 100px;
+    padding-top: 30px;
+}
+
+.page-title {
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    width: 310px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    justify-content: space-between;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.keys {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media all and (min-width: 630px) {
+
+    .keys {
+        width: 616px;
+    }
+
+    .sharp-keys {
+        width: 505px;
+    }
+
+}
+
+@media all and (max-width: 629px) {
+    .keys {
+        width: 350px;
+    }
+
+    .sharp-keys {
+        width: 300px;
+    }
+
+}
+
+.sharp-keys {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+}
