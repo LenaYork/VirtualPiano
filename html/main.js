@@ -84,7 +84,7 @@ function playNote(note) {
     sound.play();
 }
 
-//работа клавиш физической клавиатуры
+//physical keyboard
 const noteNames = [
     "KeyD",
     "KeyF",

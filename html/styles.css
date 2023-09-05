@@ -3,7 +3,6 @@
 }
 
 @media all and (min-width: 630px) {
-
     .keys {
         width: 616px;
     }
@@ -100,7 +99,7 @@
     background-color: #057d7d;
     display: flex;
     flex-direction: column;
-    height: 97vh;
+    height: 100vh;
 }
 
 .header {

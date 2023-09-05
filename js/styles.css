@@ -3,7 +3,6 @@
 }
 
 @media all and (min-width: 630px) {
-
     .keys {
         width: 616px;
     }
@@ -100,7 +99,7 @@
     background-color: #057d7d;
     display: flex;
     flex-direction: column;
-    height: 97vh;
+    height: 100vh;
 }
 
 .header {
@@ -204,7 +203,7 @@
 }
 
 .key:after {
-    /* pointer-events: none; */
+    pointer-events: none;
     content: attr(data-letter);
     position: relative;
     width: 40px;
@@ -228,11 +227,11 @@
     color: #4f4f44;
     position: relative;
     top: -40px;
-    /* left: 20px; */
     width: 40px;
     height: 40px;
     font-size: 26px;
     line-height: 40px;
+    pointer-events: none;
 }
 
 .sharp-key.note:before{
