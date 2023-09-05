@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/VirtualPiano/static/css/main.880408ce.css",
-    "main.js": "/VirtualPiano/static/js/main.c3efeeba.js",
+    "main.js": "/VirtualPiano/static/js/main.f5f8034f.js",
     "static/js/787.a43d48ea.chunk.js": "/VirtualPiano/static/js/787.a43d48ea.chunk.js",
     "index.html": "/VirtualPiano/index.html",
     "main.880408ce.css.map": "/VirtualPiano/static/css/main.880408ce.css.map",
-    "main.c3efeeba.js.map": "/VirtualPiano/static/js/main.c3efeeba.js.map",
+    "main.f5f8034f.js.map": "/VirtualPiano/static/js/main.f5f8034f.js.map",
     "787.a43d48ea.chunk.js.map": "/VirtualPiano/static/js/787.a43d48ea.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.880408ce.css",
-    "static/js/main.c3efeeba.js"
+    "static/js/main.f5f8034f.js"
   ]
 }
