@@ -15,3 +15,6 @@ code: https://github.com/LenaYork/VirtualPiano/tree/react/js
 code: https://github.com/LenaYork/VirtualPiano/tree/react/react-version
 
 demo: https://lenayork.github.io/VirtualPiano/
+
+
+You can play this piano using either the keyboard on the web application or your own laptop/desktop keyboard.
