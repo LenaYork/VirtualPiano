@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./SharpKey.css";
 
-export const SharpKey = ({code, className, letter, note, id}) => {
-    const [isActiveKey, setIsKeyActive] = useState(false);
+export const SharpKey = ({code, className, letter, note, id, pressedButton}) => {
+    const [isActiveKey, setIsKeyActive] = useState(pressedButton === code && code != "keyY");
+
+    useEffect(() => {
+        if (pressedButton === code) {
+            setIsKeyActive(true);
+        } else setIsKeyActive(false);
+    }, [pressedButton]);
 
     const sharpKeyDownHandler = () => {
         setIsKeyActive(true);

@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "./components/Button/Button";
 import { Key } from "./components/Key/Key";
 import { SharpKey } from "./components/SharpKey/SharpKey";
@@ -7,13 +7,13 @@ import { SharpKey } from "./components/SharpKey/SharpKey";
 function App() {
 
     const [activeButton, setActiveButton] = useState("letter-button");
+    const [pressedButton, setPressedButton] = useState("");
 
     const activeButtonHandler = (event) => {
         const newId = event.target.id;
         if (newId !== activeButton) {
             setActiveButton(newId)
         }
-        console.log("clicked!")
     }
 
     const whiteKeysAttributes = [
@@ -54,7 +54,7 @@ function App() {
         },
     ]
 
-    const SharpKeysArrtibues = [
+    const sharpKeysAttributes = [
         {
             code : "KeyR" ,
             letter : "R" ,
@@ -87,6 +87,36 @@ function App() {
         },
     ]
 
+    const checkPressedKey = (pressedKey) => {
+        return whiteKeysAttributes.some(obj => obj.code === pressedKey) || sharpKeysAttributes.some(obj => obj.code === pressedKey);
+    }
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.repeat) return; 
+            
+            const key = e.code;
+            if (checkPressedKey(key)) {
+                const newAudio = new Audio(`audio/${key}.mp3`);
+                newAudio.play();
+            }
+
+            setPressedButton(key);
+        };
+
+        const handleKeyUp = (e) => {
+            setPressedButton("");
+        }
+
+        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("keyup", handleKeyUp);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("keyup", handleKeyUp);
+        };
+    }, []);
+
     return (
         <div className="app-container">
             <header className="header">
@@ -118,18 +148,20 @@ function App() {
                             note={data.note}
                             id={index}
                             key={index}
+                            pressedButton={pressedButton}
                             className={`key ${activeButton === "notes-button" ? "note" : ""}`}
                         />
                     })}
                 </div>
                 <div className="sharp-keys">
-                    {SharpKeysArrtibues.map( (data, index) => {
+                    {sharpKeysAttributes.map( (data, index) => {
                         return <SharpKey 
                             code={data.code}
                             letter={data.letter}
                             note={data.note}
                             id={index}
                             key={index}
+                            pressedButton={pressedButton}
                             className={`sharp-key ${activeButton === "notes-button" ? "note" : ""}`}
                         />
                     } )}

@@ -1,8 +1,14 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import "./Key.css";
 
-export const Key = ({code, className, letter, note, id}) => {
-    const [isKeyActive, setIsKeyActive] = useState(false);
+export const Key = ({code, className, letter, note, id, pressedButton}) => {
+    const [isKeyActive, setIsKeyActive] = useState(pressedButton === code);
+
+    useEffect(() => {
+        if (pressedButton === code) {
+            setIsKeyActive(true);
+        } else setIsKeyActive(false);
+    }, [pressedButton]);
 
     const keyDownHandler = (event) => {
         setIsKeyActive(true);
@@ -21,10 +27,8 @@ export const Key = ({code, className, letter, note, id}) => {
     const keyClass = isKeyActive ? `${className} key-active` : className;
 
     return(
-
         <div
             className={keyClass}
-            // data-code={props.code}
             data-code={code}
             data-letter={letter} 
             data-note={note}
