@@ -20,7 +20,7 @@ export const SharpKey = ({code, className, letter, note, id, pressedButton}) => 
     }
 
     const playNote = (note) => {
-        let sound = new Audio(`/audio/${note}.mp3`);
+        let sound = new Audio(`./audio/${note}.mp3`);
         sound.play();
     }
 
