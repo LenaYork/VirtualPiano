@@ -19,6 +19,7 @@
     line-height: 40px;
     text-align: center;
     color: #06c0c0;
+    pointer-events: none;
 }
 
 .key.note:after {
